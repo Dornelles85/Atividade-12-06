@@ -33,54 +33,39 @@
 
 </html> -->
 
+<!DOCTYPE html>
 <html lang="pt-BR">
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Serpente AR</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Realidade Aumentada</title>
 
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
 </head>
 
-<body>
+<body style="margin:0; overflow:hidden;">
 
-    <!-- UI Inicial -->
-
-    <div id="instructions">
-
-        <h2>Aponte para a figura</h2>
-
-        <img src="src/marker.jpeg" alt="Marcador">
-
-    </div>
-
-    <a-scene embedded vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;"
+    <a-scene
+        embedded
+        vr-mode-ui="enabled: false"
         arjs="trackingMethod: best; sourceType: webcam;">
 
         <a-assets>
-
-            <img id="planeImage" src="src/serpente.jpeg">
-
-            <audio id="music" src="src/musicBanzeiro.mp3">
-            </audio>
-
+            <img id="imagem" src="serpente.jpeg">
         </a-assets>
 
-        <a-marker id="marker" type="pattern" url="src/marker.patt">
+        <a-marker
+            type="pattern"
+            url="marker.patt">
 
-            <a-plane id="imagePlane" src="#planeImage" position="0 0.1 0" rotation="-90 0 0">
-            </a-plane>
-            <a-entity id="audioEntity" sound="
-                    src: #music;
-                    autoplay: false;
-                    loop: true;">
-            </a-entity>
+            <a-image
+                src="#imagem"
+                position="0 0.5 0"
+                rotation="-90 0 0"
+                width="1.5"
+                height="1">
+            </a-image>
 
         </a-marker>
 
@@ -88,8 +73,5 @@
 
     </a-scene>
 
-    <script src="script.js"></script>
-
 </body>
-
 </html>
